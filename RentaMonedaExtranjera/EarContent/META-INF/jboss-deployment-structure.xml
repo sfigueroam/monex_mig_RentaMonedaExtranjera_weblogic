@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+    <deployment>
+         <dependencies>
+              <module name="cl.tgr.librerias" export="true" />
+              <module name="com.oracle" export="true" />
+              <module name="com.monex.configuration" export="true" />
+        </dependencies> 
+
+	    <resources>
+	        <resource-root path="log4j-1.2.17"/>
+	        <resource-root path="ojdbc6.jar"/>
+	    </resources>
+
+   </deployment>
+</jboss-deployment-structure>

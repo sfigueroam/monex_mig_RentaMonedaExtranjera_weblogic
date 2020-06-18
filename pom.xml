@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	
+	<groupId>cl.tesoreria.finanzas.rentame</groupId>
+	<artifactId>RentaMonedaExtranjeraApp</artifactId>
+	<version>2.0.0.0</version>
+	<packaging>pom</packaging>
+	<name>Renta moneda extranjera SOAP WS</name>
+	
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+	
+	<!-- INICIO : Definición de módulos de este proyecto : incluir jar y war propios a construir -->
+	
+	<modules>
+		<module>MessagesVO</module>					<!-- Modulo JAR -->	
+		<module>RMEUtils</module>					<!-- Modulo JAR -->
+		<module>RentaSchema</module>				<!-- Modulo JAR -->	
+		<module>AdfprocedureEJB</module>			<!-- Modulo JAR, EJB-->
+		<module>PkgSiiRentaMeEJB</module>			<!-- Modulo JAR, EJB -->	
+		<module>PkgCutServicesMonexEJB</module>		<!-- Modulo JAR, EJB -->	
+		<module>RentaMEJB</module>					<!-- Modulo JAR, EJB -->	
+		<module>RentaMasivaWS</module>				<!-- Modulo WAR, Soap Exposer -->	
+		<module>RentaMonedaExtranjera</module>		<!-- Modulo EAR, Applicacion principal -->	
+	</modules>
+	
+	<!-- FIN : Definición de módulos de este proyecto : incluir jar y war propios a construir -->	
+
+</project>

@@ -1,0 +1,16 @@
+apiVersion: v1 # Usa apps/v1beta2 para versiones anteriores a 1.9.0
+kind: Service
+
+metadata:
+  name: monex-renta-moneda-extranjera-app-service
+  labels:
+     app: monex-renta-moneda-extranjera-app
+spec:
+  selector:
+     app: monex-renta-moneda-extranjera-app
+  ports:
+     - name: monex-renta-moneda-extranjera-appp
+       protocol: TCP
+       port: 8080
+       targetPort: 8080
+  type: LoadBalancer

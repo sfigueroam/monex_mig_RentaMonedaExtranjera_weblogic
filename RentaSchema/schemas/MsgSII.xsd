@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Jose Aedo (Tesgral) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="MessageId">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Code" type="xs:string"/>
+							<xs:element name="MsgDesc" type="xs:string"/>
+							<xs:element name="Version" type="xs:long"/>
+							<xs:element name="FechaVersion" type="xs:string"/>
+							<xs:element name="FromAddress" type="xs:string"/>
+							<xs:element name="ToAddress" type="xs:string"/>
+							<xs:element name="RefAddress" type="xs:decimal"/>
+							<xs:element name="DateTime" type="xs:string"/>
+							<xs:element name="Validado" type="xs:string"/>
+							<xs:element name="Number" type="xs:decimal"/>
+							<xs:element name="PeriodoContable" type="xs:decimal"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Formulario" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Identificacion">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="RutIra" type="xs:decimal"/>
+										<xs:element name="DvIra" type="xs:string"/>
+										<xs:element name="FolioF01" type="xs:decimal"/>
+										<xs:element name="Formulario" type="xs:decimal"/>
+										<xs:element name="Periodo" type="xs:decimal"/>
+										<xs:element name="FolioDecl" type="xs:decimal"/>
+										<xs:element name="Signo" type="xs:string"/>
+										<xs:element name="RutContr" type="xs:decimal"/>
+										<xs:element name="DvContr" type="xs:string"/>
+										<xs:element name="MarcaFisc" type="xs:decimal"/>
+										<xs:element name="GlosaFisc" type="xs:string"/>
+										<xs:element name="MontoRet" type="xs:decimal"/>
+										<xs:element name="SignoMontoImp" type="xs:string"/>
+										<xs:element name="MontoImp" type="xs:decimal"/>
+										<xs:element name="SignoMontoPag" type="xs:string"/>
+										<xs:element name="MontoPago" type="xs:decimal"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="ListaCodigos">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Codigos" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Codigo" type="xs:decimal" nillable="false"/>
+													<xs:element name="Signo" type="xs:string" nillable="false"/>
+													<xs:element name="Contenido" type="xs:string" nillable="false"/>
+												</xs:sequence>
+												<xs:attribute name="nro" type="xs:decimal" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="nro" type="xs:decimal" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:conv="http://www.openuri.org/2002/04/soap/conversation/" xmlns:cw="http://www.openuri.org/2002/04/wsdl/conversation/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:jms="http://www.openuri.org/2002/04/wsdl/jms/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:s0="http://www.openuri.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" targetNamespace="http://www.openuri.org/">
+  <types>
+    <s:schema xmlns:s="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.openuri.org/">
+      <s:element name="string" nillable="true" type="s:string"/>
+    </s:schema>
+
+  </types>
+  <message name="receiverXMLSoapIn">
+    <part name="inputXML" type="s:string"/>
+  </message>
+  <message name="receiverXMLSoapOut">
+    <part name="receiverXMLResult" type="s:string"/>
+  </message>
+  <message name="receiverXMLHttpGetIn">
+    <part name="inputXML" type="s:string"/>
+  </message>
+  <message name="receiverXMLHttpGetOut">
+    <part name="Body" element="s0:string"/>
+  </message>
+  <message name="receiverXMLHttpPostIn">
+    <part name="inputXML" type="s:string"/>
+  </message>
+  <message name="receiverXMLHttpPostOut">
+    <part name="Body" element="s0:string"/>
+  </message>
+  <portType name="WSRentaMasivaMESoap">
+    <operation name="receiverXML">
+      <input message="s0:receiverXMLSoapIn"/>
+      <output message="s0:receiverXMLSoapOut"/>
+    </operation>
+  </portType>
+  <portType name="WSRentaMasivaMEHttpGet">
+    <operation name="receiverXML">
+      <input message="s0:receiverXMLHttpGetIn"/>
+      <output message="s0:receiverXMLHttpGetOut"/>
+    </operation>
+  </portType>
+  <portType name="WSRentaMasivaMEHttpPost">
+    <operation name="receiverXML">
+      <input message="s0:receiverXMLHttpPostIn"/>
+      <output message="s0:receiverXMLHttpPostOut"/>
+    </operation>
+  </portType>
+  <binding name="WSRentaMasivaMESoap" type="s0:WSRentaMasivaMESoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="receiverXML">
+      <soap:operation soapAction="http://www.openuri.org/receiverXML" style="rpc"/>
+      <input>
+        <soap:body use="encoded" namespace="http://www.openuri.org/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </input>
+      <output>
+        <soap:body use="encoded" namespace="http://www.openuri.org/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="WSRentaMasivaMEHttpGet" type="s0:WSRentaMasivaMEHttpGet">
+    <http:binding verb="GET"/>
+    <operation name="receiverXML">
+      <http:operation location="/receiverXML"/>
+      <input>
+        <http:urlEncoded/>
+      </input>
+      <output>
+        <mime:mimeXml part="Body"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="WSRentaMasivaMEHttpPost" type="s0:WSRentaMasivaMEHttpPost">
+    <http:binding verb="POST"/>
+    <operation name="receiverXML">
+      <http:operation location="/receiverXML"/>
+      <input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </input>
+      <output>
+        <mime:mimeXml part="Body"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="WSRentaMasivaME">
+    <port name="WSRentaMasivaMESoap" binding="s0:WSRentaMasivaMESoap">
+      <soap:address location="http://localhost/RentaMasivaWS/WSRentaMasivaME.jws?WSDL"/>      
+    </port>
+  </service>
+</definitions>
